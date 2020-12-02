@@ -6,7 +6,7 @@ import https from 'https'
 import { Puzzle } from './puzzle.interface'
 import { PuzzleServer } from './puzzle.server'
 
-type Constructor<T> = new (...args: unknown[]) => T;
+type Constructor<T> = new (renderServer?: PuzzleServer) => T;
 
 export type PuzzleResult = {
     a: (string | number | Promise<string | number>),
