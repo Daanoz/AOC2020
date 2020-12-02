@@ -1,12 +1,12 @@
-import { Puzzle, Runner, BasePuzzle, Result } from '../shared/';
+import { Puzzle, Runner, BasePuzzle, Result } from '../shared/'
 
 export class PuzzleSolution extends BasePuzzle implements Puzzle {
-    public run() {
-        const result: Result = {};
+    public run(): Result {
+        const result: Result = {}
 
-        return result;
+        return result
     }
 
 }
 
-Runner(PuzzleSolution);
+Runner(PuzzleSolution)

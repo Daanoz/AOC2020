@@ -1,36 +1,36 @@
-import { Puzzle, Runner, BasePuzzle, Result } from '../shared/';
+import { Puzzle, Runner, BasePuzzle, Result } from '../shared/'
 
 export class PuzzleSolution extends BasePuzzle implements Puzzle {
-    public run() {
-        const result: Result = {};
+    public run(): Result {
+        const result: Result = {}
 
-        const records: number[] = this.getInputAsRows().map(v => parseFloat(v));
+        const records: number[] = this.getInputAsRows().map(v => parseFloat(v))
 
-        const totalNumber = 2020;
+        const totalNumber = 2020
 
         records.forEach(valueA => {
-            if (result.a && result.b) { return; }
-            if (valueA > totalNumber) { return; }
+            if (result.a && result.b) { return }
+            if (valueA > totalNumber) { return }
 
             records.forEach(valueB => {
-                if (result.a && result.b) { return; }
-                if (valueA + valueB > totalNumber) { return; }
+                if (result.a && result.b) { return }
+                if (valueA + valueB > totalNumber) { return }
 
                 if (valueA + valueB === totalNumber) {
-                    result.a = valueA * valueB;
+                    result.a = valueA * valueB
                 }
-                
+
                 records.forEach(valueC => {
                     if (valueA + valueB + valueC === totalNumber) {
-                        result.b = valueA * valueB * valueC;
+                        result.b = valueA * valueB * valueC
                     } 
                 })
             })
         })
 
-        return result;
+        return result
     }
 
 }
 
-Runner(PuzzleSolution);
+Runner(PuzzleSolution)
