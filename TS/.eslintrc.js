@@ -4,6 +4,7 @@ module.exports = {
     extends: ['plugin:@typescript-eslint/recommended'],
     rules: {
         '@typescript-eslint/no-empty-function': ['off'],
+        '@typescript-eslint/no-non-null-assertion': ['off'],
         semi: ['error', 'never'],
         quotes: ['error', 'single']
     }
