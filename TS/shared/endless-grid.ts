@@ -34,6 +34,8 @@ export class EndlessGrid<T extends string | GridCell> {
 
     public getHeight(): number { return Math.abs(this.yRange[1] - this.yRange[0]) }
     public getWidth():  number { return Math.abs(this.xRange[1] - this.xRange[0]) }
+    public getXRange(): [number, number] { return [...this.xRange] }
+    public getYRange(): [number, number] { return [...this.yRange] }
 
     public getRow(y: number): T[] {
         const results: T[] = []
@@ -205,12 +207,12 @@ export class EndlessGrid<T extends string | GridCell> {
         return undefined
     }
 
-    public toString(xStart?: number, yStart?: number, xEnd?: number, yEnd?: number): string {
+    public toString(xStart?: number, yStart?: number, xEnd?: number, yEnd?: number, defaultValue = ' '): string {
         let body = ''
         for(let y = yEnd || this.yRange[1]; y >= (yStart || this.yRange[0]); y--) {
             let row = ''
             for(let x = xStart || this.xRange[0]; x <= (xEnd || this.xRange[1]); x++) {
-                const cell = this.get(x, y, ' ')
+                const cell = this.get(x, y, defaultValue)
                 if (typeof cell === 'string') {
                     row += cell
                 } else {
